@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<h1>GitHub user info</h1>
+<p id="quote">Info goes here!</p>
+<input type="button" id="myBtn" value="Tryk her!"/>
+
+<script>
+    $("#myBtn").click(function() {
+        $.ajax({
+            url: "http://api.github.com/users/jarltuxen"
+        }).then(function (data) {
+            $('#quote').text(data.id + " " + data.name + " " + data.company);
+        });
+    });
+</script>
+</body>
+</html>
